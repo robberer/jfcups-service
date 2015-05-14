@@ -1,0 +1,47 @@
+apply plugin: 'com.android.application'
+
+dependencies {
+	compile "com.android.support:support-v4:22.0.0"
+	compile "com.android.support:appcompat-v7:22.0.0"
+        compile fileTree(dir: 'libs', include: '*.jar')
+}
+
+android {
+	compileSdkVersion 22
+	buildToolsVersion "22.0.1"
+
+	// Use Java 1.7, requires minSdk 8
+	compileOptions {
+		sourceCompatibility JavaVersion.VERSION_1_7
+		targetCompatibility JavaVersion.VERSION_1_7
+	}
+
+	defaultConfig {
+		versionCode 23
+		versionName "0.23"
+		minSdkVersion 19
+		targetSdkVersion 22
+	}
+
+	buildTypes {
+		release {
+			// Enable proguard with default android settings (no obfuscation)
+			//minifyEnabled true
+			//proguardFile getDefaultProguardFile('proguard-android.txt')
+		}
+	}
+
+	compileOptions.encoding = "UTF-8"
+
+	lintOptions {
+		checkReleaseBuilds false
+		abortOnError false
+	}
+
+	// Enable all Android lint warnings
+	gradle.projectsEvaluated {
+		tasks.withType(JavaCompile) {
+			options.compilerArgs << "-Xlint:all"
+		}
+	}
+}
