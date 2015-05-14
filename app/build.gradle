@@ -3,6 +3,8 @@ apply plugin: 'com.android.application'
 dependencies {
 	compile "com.android.support:support-v4:22.0.0"
 	compile "com.android.support:appcompat-v7:22.0.0"
+        // compile "commons-validator:commons-validator:1.4.1"
+        compile "org.ini4j:ini4j:0.5.4"
         compile fileTree(dir: 'libs', include: '*.jar')
 }
 
