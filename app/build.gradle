@@ -6,7 +6,6 @@ dependencies {
         compile "commons-validator:commons-validator:1.4.0"
 	compile "javax.jmdns:jmdns:3.4.1"
         compile "org.ini4j:ini4j:0.5.4"
-        compile fileTree(dir: 'libs', include: '*.jar')
 }
 
 android {
