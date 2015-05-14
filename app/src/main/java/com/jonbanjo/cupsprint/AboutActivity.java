@@ -46,17 +46,19 @@ public class AboutActivity extends Activity {
 		}
 		String html = "<h1>JfCupsPrintService " + version + "</h1>";
 		
-		html = html + "<p>Copyright &copy; Jon Freeman 2014</p>";
+		html = html + "<p>Copyright &copy; Jon Freeman 2014<br>Copyright &copy; Boris Kraut 2015</p>";
 
 		html = html + 
 "<p>This software uses ini4j, jmdns and libraries from the Apache Commons Project. These are " +
-"licenced under the Apache Licence. </p>";
+"licenced under the Apache Licence.</p>";
 
-html = html + 
+		html = html + 
 "<p>JfCupsPrintService is released under the GNU General Public Licence version 3. " + 
 "Further details may be found at " +
-"<a href=\"http://mobd.jonbanjo.com/jfcupsprintservice/licence.php\">http://mobd.jonbanjo.com/jfcupsprintservice/licence.php</a>";
+"<a href=\"http://mobd.jonbanjo.com/jfcupsprintservice/licence.php\">http://mobd.jonbanjo.com/jfcupsprintservice/licence.php</a> and the <a href=\"https://github.com/krt16s/jfcups-service/\">https://github.com/krt16s/jfcups-service/</a>.";
 
+		html = html + "<p>Original development by Jon Freeman, adaption to gradle and cleaning by Boris Kraut.";
+ 
 		tv.setText(Html.fromHtml(html));
 		tv.setMovementMethod(LinkMovementMethod.getInstance());	}
 
