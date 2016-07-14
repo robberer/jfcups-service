@@ -26,6 +26,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -48,6 +49,18 @@ public class PrinterPrintDefaultActivity extends Activity {
 		Intent intent = getIntent();
 		String action = intent.getAction();
 		String type = intent.getType();
+
+		/*
+        Print SMS - @robert
+		 */
+        String extraText = intent.getStringExtra(Intent.EXTRA_TEXT);
+        if (Intent.ACTION_SEND.equals(action) && extraText != null && extraText.equals("printSMS")) {
+            jobUri = Uri.parse("file:///storage/emulated/legacy/last-sms.txt");
+            mimeType = "text/plain";
+        }
+        /*
+		Print SMS - @robert - END
+		 */
 
 		if (Intent.ACTION_SEND.equals(action) && type != null) {
 		        jobUri = (Uri) intent.getParcelableExtra(Intent.EXTRA_STREAM);

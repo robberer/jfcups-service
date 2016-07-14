@@ -39,6 +39,7 @@ program; if not, see <http://www.gnu.org/licenses/>.
 //import com.jonbanjo.cupscontrols.CupsTableLayout;
 
 //import android.net.Uri;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
@@ -430,6 +431,13 @@ public class PrintJobActivity extends Activity
 	    			PrintRequestResult printResult = cupsClient.print(cupsPrinter.getQueue(), job, auth);
 	            	showToast("JfCupsPrint\n" + fileName + "\n" + printResult.getResultDescription());
 	                System.out.println("job printed");
+
+                    /*
+					OK, we successfully printed the job, let's remove the last-sms.txt file
+					on the sdcard. @robert
+				    */
+                    File smsFile = new File("/storage/emulated/legacy/last-sms.txt");
+                    smsFile.delete();
 	        	}
 	            catch (Exception e){
 	            	showToast("JfCupsPrint error:\n" + e.toString());
